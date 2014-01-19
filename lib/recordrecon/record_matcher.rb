@@ -1,6 +1,6 @@
 module RecordRecon
   class RecordMatcher
-    def self.match
+    def match
       records = Hash.new
       targets = Hash.new
 
@@ -18,6 +18,7 @@ module RecordRecon
           :name => target.name,
           :processed_at => target.processed_at
         }
+
         targets[key] = target
       end
 

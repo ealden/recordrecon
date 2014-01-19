@@ -6,7 +6,7 @@ module RecordRecon
     fixtures :records, :target_transactions
 
     test 'match' do
-      results = RecordMatcher.match
+      results = RecordMatcher.new.match
 
       assert_equal 1, results.count
 
