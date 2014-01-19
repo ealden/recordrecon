@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119061428) do
+ActiveRecord::Schema.define(version: 20140119080713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,13 @@ ActiveRecord::Schema.define(version: 20140119061428) do
     t.integer  "target_count"
     t.string   "source_name"
     t.string   "source_category"
-    t.string   "source_count"
     t.string   "tag"
     t.date     "tagged_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "target_created_at"
     t.date     "source_created_at"
+    t.integer  "source_count"
   end
 
   create_table "target_transactions", force: true do |t|
