@@ -17,5 +17,15 @@ module RecordRecon
       assert_equal '1234567891', result[10]
       assert_equal Date.parse('2014-01-08'), result[14]
     end
+
+    test 'export to file' do
+      path = 'test/assets/output.xls'
+
+      RecordMatcher.match path
+
+      assert File.exists? path
+
+      FileUtils.rm path
+    end
   end
 end

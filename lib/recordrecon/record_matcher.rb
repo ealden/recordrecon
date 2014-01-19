@@ -1,5 +1,16 @@
 module RecordRecon
   class RecordMatcher
+    def self.match path
+      book = Spreadsheet::Workbook.new
+      sheet = book.create_worksheet
+
+      new.match.each_with_index do |result, i|
+        sheet.row(i).concat result
+      end
+
+      book.write path
+    end
+
     def match
       records = Hash.new
       targets = Hash.new
