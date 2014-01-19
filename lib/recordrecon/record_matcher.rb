@@ -4,14 +4,14 @@ module RecordRecon
       book = Spreadsheet::Workbook.new
       sheet = book.create_worksheet
 
-      new.match.each_with_index do |result, i|
+      new.match(true).each_with_index do |result, i|
         sheet.row(i).concat result
       end
 
       book.write path
     end
 
-    def match
+    def match header = false
       records = Hash.new
       targets = Hash.new
 
@@ -34,6 +34,7 @@ module RecordRecon
       end
 
       results = []
+      results << output_header if header
 
       records.each do |key, record|
         if targets.has_key? key
@@ -43,5 +44,27 @@ module RecordRecon
 
       results
     end
+
+    private
+      def output_header
+        header = []
+        header << 'target_name'
+        header << 'target_category'
+        header << 'target_created_at'
+        header << 'target_count'
+        header << 'source_name'
+        header << 'source_category'
+        header << 'source_created_at'
+        header << 'source_count'
+        header << 'tag'
+        header << 'tagged_at'
+        header << 'name'
+        header << 'enterd_at'
+        header << 'clearing'
+        header << 'allocated_at'
+        header << 'processed_at'
+
+        header
+      end
   end
 end

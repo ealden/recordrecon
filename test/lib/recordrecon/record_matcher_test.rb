@@ -24,7 +24,11 @@ module RecordRecon
       RecordMatcher.match path
 
       assert File.exists? path
-      assert_equal 1, Spreadsheet.open(path).worksheet(0).row_count
+
+      sheet = Spreadsheet.open(path).worksheet(0)
+
+      assert_equal 2, sheet.row_count
+      assert_equal 15, sheet.column_count
 
       FileUtils.rm path
     end
