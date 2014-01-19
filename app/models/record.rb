@@ -2,7 +2,7 @@ class Record < ActiveRecord::Base
   def self.to_hash
     records = Hash.new
 
-    where(:target_name => nil).each do |record|
+    all.each do |record|
       key = {
         :name => record.source_name,
         :processed_at => record.tagged_at

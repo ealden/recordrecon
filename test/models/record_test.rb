@@ -16,7 +16,7 @@ class RecordTest < ActiveSupport::TestCase
   test 'should return hash with source_name and tagged_at as key' do
     records = Record.to_hash
 
-    assert_equal 1, records.count
+    assert_equal 2, records.count
 
     record2 = records(:record2)
 
