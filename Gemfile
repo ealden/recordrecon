@@ -49,3 +49,5 @@ group :development do
   gem 'guard-minitest'
   gem 'terminal-notifier-guard'
 end
+
+gem 'spreadsheet'
