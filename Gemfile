@@ -43,3 +43,9 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :development do
+  gem 'guard'
+  gem 'guard-minitest'
+  gem 'terminal-notifier-guard'
+end
