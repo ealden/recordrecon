@@ -3,6 +3,10 @@ require 'recordrecon/record_loader'
 
 module RecordRecon
   class RecordLoaderTest < ActiveSupport::TestCase
+    setup do
+      Record.destroy_all
+    end
+
     test 'import' do
       loader = RecordLoader.new
       record = [ '1234567890', 'ABC', '2014-01-01', 2, '1234567890', 'ABC', '2014-01-01', 2, 'GOOD', '2014-01-01' ]
