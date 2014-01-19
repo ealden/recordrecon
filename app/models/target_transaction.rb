@@ -9,4 +9,14 @@ class TargetTransaction < ActiveRecord::Base
 
     target_transaction
   end
+
+  def cleared_at
+    target_date = entered_at + clearing.days
+
+    unless target_date.thursday? or target_date.friday?
+      target_date += 2.days
+    end
+
+    target_date
+  end
 end
