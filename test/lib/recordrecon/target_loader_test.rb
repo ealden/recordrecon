@@ -10,5 +10,11 @@ module RecordRecon
 
       assert_equal 1, TargetTransaction.count
     end
+
+    test 'import xls' do
+      TargetLoader.import 'test/assets/target_transactions.xls'
+
+      assert_equal 3, TargetTransaction.count
+    end
   end
 end
