@@ -1,0 +1,12 @@
+target_transaction1:
+  name: 1234567890
+  entered_at: 2014-01-01
+  clearing: 3
+  allocated_at: 2014-01-06
+  processed_at: 2014-01-08
+
+target_transaction2:
+  name: 1234567891
+  entered_at: 2014-01-01
+  allocated_at: 2014-01-06
+  processed_at: 2014-01-08

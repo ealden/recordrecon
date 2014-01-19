@@ -3,6 +3,10 @@ require 'recordrecon/target_loader'
 
 module RecordRecon
   class TargetLoaderTest < ActiveSupport::TestCase
+    setup do
+      TargetTransaction.destroy_all
+    end
+
     test 'import' do
       record = ['12345678990', '', '', '2014-01-08', '2014-01-06', '', '', '2014-01-01', 3]
 
