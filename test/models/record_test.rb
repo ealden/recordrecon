@@ -12,4 +12,14 @@ class RecordTest < ActiveSupport::TestCase
 
     assert_equal expected, Record.new.to_a
   end
+
+  test 'should return hash with source_name and tagged_at as key' do
+    records = Record.to_hash
+
+    assert_equal 1, records.count
+
+    record2 = records(:record2)
+
+    assert_equal record2, records[{ :name => record2.source_name, :processed_at => record2.tagged_at }]
+  end
 end

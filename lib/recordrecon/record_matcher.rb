@@ -12,26 +12,8 @@ module RecordRecon
     end
 
     def match header = false
-      records = Hash.new
-      targets = Hash.new
-
-      Record.where(:target_name => nil).each do |record|
-        key = {
-          :name => record.source_name,
-          :processed_at => record.tagged_at
-        }
-
-        records[key] = record
-      end
-
-      TargetTransaction.all.each do |target|
-        key = {
-          :name => target.name,
-          :processed_at => target.processed_at
-        }
-
-        targets[key] = target
-      end
+      records = Record.to_hash
+      targets = TargetTransaction.to_hash
 
       results = []
       results << output_header if header

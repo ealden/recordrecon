@@ -45,6 +45,16 @@ class TargetTransactionTest < ActiveSupport::TestCase
     assert_equal '2014-01-17', get_clearing_date('2014-01-08', 7)
   end
 
+  test 'should return hash with name and processed_at as key' do
+    targets = TargetTransaction.to_hash
+
+    assert_equal 2, targets.count
+
+    target_transaction1 = target_transactions(:target_transaction1)
+
+    assert_equal target_transaction1, targets[{ :name => target_transaction1.name, :processed_at => target_transaction1.processed_at }]
+  end
+
   private
 
     def get_clearing_date entered_at, clearing

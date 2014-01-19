@@ -1,4 +1,19 @@
 class TargetTransaction < ActiveRecord::Base
+  def self.to_hash
+    targets = Hash.new
+
+    all.each do |target|
+      key = {
+        :name => target.name,
+        :processed_at => target.processed_at
+      }
+
+      targets[key] = target
+    end
+
+    targets
+  end
+
   def to_a
     target_transaction = []
     target_transaction << name

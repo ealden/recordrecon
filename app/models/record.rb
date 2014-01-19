@@ -1,4 +1,19 @@
 class Record < ActiveRecord::Base
+  def self.to_hash
+    records = Hash.new
+
+    where(:target_name => nil).each do |record|
+      key = {
+        :name => record.source_name,
+        :processed_at => record.tagged_at
+      }
+
+      records[key] = record
+    end
+
+    records
+  end
+
   def to_a
     record = []
     record << target_name
