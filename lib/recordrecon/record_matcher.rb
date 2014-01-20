@@ -19,9 +19,10 @@ module RecordRecon
       results << output_header if header
 
       records.each do |key, record|
-        if targets.has_key? key
-          results << [record.to_a, targets[key].to_a].flatten
-        end
+        target = TargetTransaction.new.to_a
+        target = targets[key] if targets.has_key?(key)
+
+        results << [record.to_a, target.to_a].flatten
       end
 
       results

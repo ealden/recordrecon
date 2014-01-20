@@ -8,9 +8,9 @@ module RecordRecon
     test 'match' do
       results = RecordMatcher.new.match
 
-      assert_equal 1, results.count
+      assert_equal 2, results.count
 
-      result = results[0]
+      result = results[1]
       assert_equal 15, result.count
       assert_equal '1234567891', result[4]
       assert_equal Date.parse('2014-01-08'), result[9]
@@ -27,7 +27,7 @@ module RecordRecon
 
       sheet = Spreadsheet.open(path).worksheet(0)
 
-      assert_equal 2, sheet.row_count
+      assert_equal 3, sheet.row_count
       assert_equal 15, sheet.column_count
 
       FileUtils.rm path
