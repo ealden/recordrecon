@@ -26,6 +26,7 @@ class Record < ActiveRecord::Base
     record << source_count
     record << tag
     record << tagged_at
+    record << notes
 
     record
   end
