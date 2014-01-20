@@ -22,4 +22,10 @@ class RecordTest < ActiveSupport::TestCase
 
     assert_equal record2, records[{ :name => record2.source_name, :processed_at => record2.tagged_at }]
   end
+
+  test 'should return key with source_name and tagged_at as fields' do
+    key = { :name => '1234567891', :processed_at => Date.parse('2014-01-08') }
+
+    assert_equal key, records(:record2).to_key
+  end
 end

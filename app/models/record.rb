@@ -30,4 +30,8 @@ class Record < ActiveRecord::Base
 
     record
   end
+
+  def to_key
+    { :name => source_name, :processed_at => tagged_at }
+  end
 end
