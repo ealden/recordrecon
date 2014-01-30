@@ -12,13 +12,14 @@ module RecordRecon
     end
 
     def match header = false
-      records = Record.to_hash
+      records = Record.all
       targets = TargetTransaction.to_hash
 
       results = []
       results << output_header if header
 
-      records.each do |key, record|
+      records.each do |record|
+        key = record.to_key
         target = TargetTransaction.new.to_a
         target = targets[key] if targets.has_key?(key)
 
